@@ -1,0 +1,97 @@
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+
+import { FacebookIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "@/components/social-icons";
+
+export default function HeroSection() {
+  return (
+    <section id="home" className="pt-32 pb-16 min-h-screen flex items-center">
+      <div className="container max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <span className="text-lg mb-4 text-zinc-400">Welcome to my world</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 heading-gradient">
+              Hi, I'm <span className="text-pink">Faraz Shah</span> <br />
+              a <span className="typed-text">Front-End Developer.</span>
+            </h1>
+            <p className="text-zinc-400 max-w-2xl mb-8">
+            I am a Front-End Developer skilled in HTML, CSS, JavaScript, and React, Next, and Tailwind creating responsive and user-friendly websites. I focus on clean UI, performance, and modern design to enhance user experience. My goal is to develop efficient, scalable, and visually appealing web solutions
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-8">
+              <div>
+                <span className="text-sm text-zinc-400 block mb-3">find with me</span>
+                <div className="flex gap-3">
+                  <Link href="https://facebook.com" target="_blank" className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg hover:bg-pink hover:shadow-none transition-all">
+                    <FacebookIcon className="h-5 w-5 text-white" />
+                  </Link>
+                  <Link href="https://github.com/FARAZSHAH909" target="_blank" className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg hover:bg-pink hover:shadow-none transition-all">
+                    <GitHubIcon className="h-5 w-5 text-white" />
+                  </Link>
+                  <Link href="https://www.linkedin.com/in/faraz-shah-934947306/" target="_blank" className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg hover:bg-pink hover:shadow-none transition-all">
+                    <LinkedInIcon className="h-5 w-5 text-white" />
+                  </Link>
+                </div>
+              </div>
+
+              <div>
+                <span className="text-sm text-zinc-400 block mb-3">best skill on</span>
+                <div className="flex gap-3">
+                  <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 19l9 2-9-18-9 18 9-2z" />
+                    </svg>
+                  </div>
+                  <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="14.31" y1="8" x2="20.05" y2="17.94" />
+                      <line x1="9.69" y1="8" x2="21.17" y2="8" />
+                      <line x1="7.38" y1="12" x2="13.12" y2="2.06" />
+                      <line x1="9.69" y1="16" x2="3.95" y2="6.06" />
+                      <line x1="14.31" y1="16" x2="2.83" y2="16" />
+                      <line x1="16.62" y1="12" x2="10.88" y2="21.94" />
+                    </svg>
+                  </div>
+                  <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="16 18 22 12 16 6" />
+                      <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5 flex justify-center lg:justify-end items-center relative">
+            <div className="relative w-full max-w-[350px] aspect-[3/4]">
+              <div className="absolute top-0 right-0 bottom-0 left-0 bg-pink/10 rounded-lg z-0"></div>
+              <Image
+                src='/farazshah.jpeg'
+                alt="Jone Lee"
+                fill
+                className="rounded-lg z-10 object-cover"
+              />
+            </div>
+
+            <div className="absolute bottom-4 right-4 left-4 mx-auto bg-gradient-to-r from-[#2e3134] to-[#212428] p-4 rounded-lg shadow-lg max-w-xs z-20">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#6a67ce] to-[#fc636b] flex items-center justify-center text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium text-white">Tilt Animation Portfolio</h4>
+                  <p className="text-xs text-zinc-400">Created by Saleh Ahmed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
