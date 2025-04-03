@@ -47,7 +47,6 @@ export default function ResumeSection() {
     <section id="resume" className="py-16">
       <div className="container max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="text-zinc-400 text-sm mb-3 inline-block">1+ Years of Experience</span>
           <h2 className="text-4xl md:text-5xl font-bold heading-gradient">My Resume</h2>
         </div>
 
@@ -71,7 +70,6 @@ export default function ResumeSection() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <Card className="bg-dark-lighter border-none rounded-xl">
                 <CardContent className="p-8">
-                  <span className="text-zinc-400 text-xl mb-6 block">2022-2023</span>
                   <h3 className="text-2xl font-bold text-white mb-8">Education Quality</h3>
 
                   <EducationItem
