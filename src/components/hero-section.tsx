@@ -85,7 +85,7 @@ export default function HeroSection() {
                 </div>
                 <div>
                   <h4 className="text-sm font-medium text-white">Tilt Animation Portfolio</h4>
-                  <p className="text-xs text-zinc-400">Created by Saleh Ahmed</p>
+                  <p className="text-xs text-zinc-400">Created by Faraz Shah</p>
                 </div>
               </div>
             </div>
