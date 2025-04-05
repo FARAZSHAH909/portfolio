@@ -3,6 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { FacebookIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "@/components/social-icons";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNode, FaGithub } from 'react-icons/fa';
+import { SiTailwindcss, SiRedux, SiNextdotjs, SiTypescript } from 'react-icons/si';
+import { IoLogoJavascript } from 'react-icons/io';
+import { BsGrid   } from 'react-icons/bs';
 
 export default function HeroSection() {
   return (
@@ -36,30 +40,57 @@ export default function HeroSection() {
               </div>
 
               <div>
-                <span className="text-sm text-zinc-400 block mb-3">best skill on</span>
-                <div className="flex gap-3">
-                  <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 19l9 2-9-18-9 18 9-2z" />
-                    </svg>
-                  </div>
-                  <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="12" r="10" />
-                      <line x1="14.31" y1="8" x2="20.05" y2="17.94" />
-                      <line x1="9.69" y1="8" x2="21.17" y2="8" />
-                      <line x1="7.38" y1="12" x2="13.12" y2="2.06" />
-                      <line x1="9.69" y1="16" x2="3.95" y2="6.06" />
-                      <line x1="14.31" y1="16" x2="2.83" y2="16" />
-                      <line x1="16.62" y1="12" x2="10.88" y2="21.94" />
-                    </svg>
-                  </div>
-                  <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="16 18 22 12 16 6" />
-                      <polyline points="8 6 2 12 8 18" />
-                    </svg>
-                  </div>
+      <span className="text-sm text-zinc-400 block mb-3">Best skill on</span>
+      <div className="flex gap-3">
+        {/* HTML Icon */}
+        <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
+          <FaHtml5 className="h-5 w-5 text-orange-500" />
+        </div>
+
+        {/* CSS Icon */}
+        <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
+          <FaCss3Alt className="h-5 w-5 text-blue-500" />
+        </div>
+
+        {/* JavaScript Icon */}
+        <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
+          <FaJs className="h-5 w-5 text-yellow-500" />
+        </div>
+
+        {/* React Icon */}
+        <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
+          <FaReact className="h-5 w-5 text-blue-600" />
+        </div>
+
+        {/* Next.js Icon */}
+        <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
+          <SiNextdotjs className="h-5 w-5 text-black" />
+        </div>
+
+        {/* Redux Icon */}
+        <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
+          <SiRedux className="h-5 w-5 text-purple-600" />
+        </div>
+
+        {/* Tailwind Icon */}
+        <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
+          <SiTailwindcss className="h-5 w-5 text-teal-400" />
+        </div>
+
+        {/* UI/UX Icon */}
+        <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
+          <BsGrid className="h-5 w-5 text-gray-800" />
+        </div>
+
+        {/* TypeScript Icon */}
+        <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
+          <SiTypescript className="h-5 w-5 text-blue-500" />
+        </div>
+
+        {/* ES6 Icon */}
+        <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
+          <IoLogoJavascript className="h-5 w-5 text-yellow-600" />
+        </div>
                 </div>
               </div>
             </div>
