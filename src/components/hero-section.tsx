@@ -39,9 +39,9 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              <div>
+              <div >
       <span className="text-sm text-zinc-400 block mb-3">Best skill on</span>
-      <div className="flex gap-3">
+      <div className="flex gap-3 flex-wrap">
         {/* HTML Icon */}
         <div className="w-12 h-12 flex items-center justify-center rounded-lg service-icon-bg">
           <FaHtml5 className="h-5 w-5 text-orange-500" />

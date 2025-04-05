@@ -77,7 +77,7 @@ export default function PortfolioSection() {
             category="Gallery"
             image="https://ext.same-assets.com/3856146916/2574969155.jpeg"
             likes={1168}
-            link="#"
+            link="https://gitex-seven.vercel.app/"
             passwordProtected={true}
           />
 
