@@ -74,9 +74,9 @@ export default function PortfolioSection() {
           <PortfolioItem
             title="Online Food Delivery Mobile App Design."
             category="Video"
-            image="https://food-website-one-rho.vercel.app/"
+            image="https://ext.same-assets.com/3856146916/1153871961.jpeg"
             likes={561}
-            link="#"
+            link="https://food-website-one-rho.vercel.app/"
           />
 
           <PortfolioItem
