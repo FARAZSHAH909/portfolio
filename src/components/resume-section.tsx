@@ -100,7 +100,6 @@ export default function ResumeSection() {
 
               <Card className="bg-dark-lighter border-none rounded-xl">
                 <CardContent className="p-8">
-                  <span className="text-zinc-400 text-xl mb-6 block">2010 - 2022</span>
                   <h3 className="text-2xl font-bold text-white mb-8">Job Experience</h3>
 
                   <EducationItem

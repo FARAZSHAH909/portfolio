@@ -46,17 +46,7 @@ const PortfolioItem = ({ title, category, image, likes, link, passwordProtected 
           </Link>
         </h3>
 
-        {passwordProtected && (
-          <div className="bg-dark-lighter p-4 rounded-lg">
-            <h4 className="text-sm text-center text-zinc-400 mb-2">
-              Please enter the password to view the content.
-            </h4>
-            <p className="text-xs text-center mb-3">
-              You want password? <Link href="mailto:example@gmail.com" className="text-pink">Request Password</Link>
-            </p>
-            <p className="text-xs text-center text-zinc-400">Demo Password is 12345</p>
-          </div>
-        )}
+       
       </CardContent>
     </Card>
   );
@@ -73,9 +63,9 @@ export default function PortfolioSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <PortfolioItem
-            title="NFT Dashboard Application Development."
+            title="Gitex Driver User App"
             category="Gallery"
-            image="https://ext.same-assets.com/3856146916/2574969155.jpeg"
+            image="/gitex.png"
             likes={1168}
             link="https://gitex-seven.vercel.app/"
             passwordProtected={true}
@@ -84,7 +74,7 @@ export default function PortfolioSection() {
           <PortfolioItem
             title="Online Food Delivery Mobile App Design."
             category="Video"
-            image="https://ext.same-assets.com/3856146916/1153871961.jpeg"
+            image="https://food-website-one-rho.vercel.app/"
             likes={561}
             link="#"
           />
