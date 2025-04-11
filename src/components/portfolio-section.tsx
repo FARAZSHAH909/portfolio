@@ -1,118 +1,62 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+#!/usr/bin/env sh
+#
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See License.txt in the project root for license information.
+if [ "$VSCODE_WSL_DEBUG_INFO" = true ]; then
+	set -x
+fi
 
-interface PortfolioItemProps {
-  title: string;
-  category: string;
-  image: string;
-  likes: number;
-  link: string;
-  passwordProtected?: boolean;
-}
+COMMIT="4949701c880d4bdb949e3c0e6b400288da7f474b"
+APP_NAME="code"
+QUALITY="stable"
+NAME="Code"
+SERVERDATAFOLDER=".vscode-server"
+VSCODE_PATH="$(dirname "$(dirname "$(realpath "$0")")")"
+ELECTRON="$VSCODE_PATH/$NAME.exe"
 
-const PortfolioItem = ({ title, category, image, likes, link, passwordProtected }: PortfolioItemProps) => {
-  return (
-    <Card className="bg-dark border-none overflow-hidden rounded-xl group">
-      <div className="relative">
-        <div className="aspect-[4/3] relative overflow-hidden">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-        </div>
+IN_WSL=false
+if [ -n "$WSL_DISTRO_NAME" ]; then
+	# $WSL_DISTRO_NAME is available since WSL builds 18362, also for WSL2
+	IN_WSL=true
+else
+	WSL_BUILD=$(uname -r | sed -E 's/^[0-9.]+-([0-9]+)-Microsoft.*|.*/\1/')
+	if [ -n "$WSL_BUILD" ]; then
+		if [ "$WSL_BUILD" -ge 17063 ]; then
+			# WSLPATH is available since WSL build 17046
+			# WSLENV is available since WSL build 17063
+			IN_WSL=true
+		else
+			# If running under older WSL, don't pass cli.js to Electron as
+			# environment vars cannot be transferred from WSL to Windows
+			# See: https://github.com/microsoft/BashOnWindows/issues/1363
+			#      https://github.com/microsoft/BashOnWindows/issues/1494
+			"$ELECTRON" "$@"
+			exit $?
+		fi
+	fi
+fi
+if [ $IN_WSL = true ]; then
 
-        <div className="absolute top-5 left-5">
-          <Badge className="bg-dark/80 text-white hover:bg-dark/90 backdrop-blur-sm">
-            {category}
-          </Badge>
-        </div>
+	export WSLENV="ELECTRON_RUN_AS_NODE/w:$WSLENV"
+	CLI=$(wslpath -m "$VSCODE_PATH/resources/app/out/cli.js")
 
-        <div className="absolute top-5 right-5">
-          <Badge className="bg-dark/80 text-white hover:bg-dark/90 backdrop-blur-sm">
-            {likes}
-          </Badge>
-        </div>
-      </div>
+	# use the Remote WSL extension if installed
+	WSL_EXT_ID="ms-vscode-remote.remote-wsl"
 
-      <CardContent className="p-6">
-        <h3 className="text-xl font-bold mb-4">
-          <Link href={link} className="text-white hover:text-pink transition-colors">
-            {title}
-          </Link>
-        </h3>
+	ELECTRON_RUN_AS_NODE=1 "$ELECTRON" "$CLI" --locate-extension $WSL_EXT_ID >/tmp/remote-wsl-loc.txt 2>/dev/null </dev/null
+	WSL_EXT_WLOC=$(cat /tmp/remote-wsl-loc.txt)
 
-       
-      </CardContent>
-    </Card>
-  );
-};
+	if [ -n "$WSL_EXT_WLOC" ]; then
+		# replace \r\n with \n in WSL_EXT_WLOC
+		WSL_CODE=$(wslpath -u "${WSL_EXT_WLOC%%[[:cntrl:]]}")/scripts/wslCode.sh
+		"$WSL_CODE" "$COMMIT" "$QUALITY" "$ELECTRON" "$APP_NAME" "$SERVERDATAFOLDER" "$@"
+		exit $?
+	fi
 
-export default function PortfolioSection() {
-  return (
-    <section id="portfolio" className="py-16">
-      <div className="container max-w-7xl mx-auto px-6">
-        <div className="text-center mb-8">
-          <span className="text-sm text-zinc-400 mb-3 inline-block">Visit my portfolio and keep your feedback</span>
-          <h2 className="text-4xl md:text-5xl font-bold heading-gradient">My Portfolio</h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <PortfolioItem
-            title="Gitex Driver User App"
-            category="Gallery"
-            image="/gitex.png"
-            likes={1168}
-            link="https://gitex-seven.vercel.app/"
-            passwordProtected={true}
-          />
-
-          <PortfolioItem
-            title="Online Food Delivery Mobile App Design."
-            category="Video"
-            image="https://ext.same-assets.com/3856146916/1153871961.jpeg"
-            likes={561}
-            link="https://food-website-one-rho.vercel.app/"
-          />
-
-          <PortfolioItem
-            title="Travel App Design Creativity & Application."
-            category="External Link"
-            image="https://ext.same-assets.com/3856146916/1153871961.jpeg"
-            likes={561}
-            link="https://themeforest.net/user/rainbow-themes/portfolio"
-          />
-
-          <PortfolioItem
-            title="Workout Website Design And Development."
-            category="Image"
-            image="https://ext.same-assets.com/3856146916/381643791.jpeg"
-            likes={736}
-            link="#"
-          />
-
-          <PortfolioItem
-            title="Mobile Application Landing Page Design."
-            category="Gallery"
-            image="https://ext.same-assets.com/3856146916/912725668.jpeg"
-            likes={667}
-            link="#"
-            passwordProtected={true}
-          />
-
-          <PortfolioItem
-            title="Restaurant Mobile App Figma Design."
-            category="Standard"
-            image="https://ext.same-assets.com/3856146916/834879061.jpeg"
-            likes={429}
-            link="#"
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
+elif [ -x "$(command -v cygpath)" ]; then
+	CLI=$(cygpath -m "$VSCODE_PATH/resources/app/out/cli.js")
+else
+	CLI="$VSCODE_PATH/resources/app/out/cli.js"
+fi
+ELECTRON_RUN_AS_NODE=1 "$ELECTRON" "$CLI" "$@"
+exit $?
