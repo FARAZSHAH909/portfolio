@@ -15,8 +15,11 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "InBio - Personal Portfolio",
+  title: "Personal Portfolio",
   description: "A personal portfolio showcasing my skills and experience",
+  icons: {
+    icon: "/FS.png", // ✅ This replaces <link rel="icon" />
+  },
 };
 
 export default function RootLayout({
@@ -26,7 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${poppins.variable} ${montserrat.variable} font-poppins bg-zinc-900 text-zinc-100`}>
+      <body
+        className={`${poppins.variable} ${montserrat.variable} font-poppins bg-zinc-900 text-zinc-100`}
+      >
         {children}
       </body>
     </html>

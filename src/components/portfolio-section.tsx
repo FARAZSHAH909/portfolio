@@ -12,7 +12,6 @@ interface PortfolioItemProps {
   category: string;
   image: string;
   likes: number;
-  link: string;
   passwordProtected?: boolean;
   video?: string; // Video URL (e.g., MP4 or YouTube embed)
   uiVideo?: string; // UI video URL
@@ -71,43 +70,50 @@ const Modal = ({
               <h4 className="text-lg font-semibold text-white mb-2">UI Video</h4>
               <video
                 controls
-                className="w-full rounded-lg"
+                className="w-[200px] rounded-lg"
                 src={project.uiVideo}
                 title={`${project.title} UI Video`}
               />
             </div>
           )}
 
-          {/* Email Screenshot */}
           {project.emailScreenshot && (
             <div>
-              <h4 className="text-lg font-semibold text-white mb-2">Email Screenshot</h4>
-              <Image
-                src={project.emailScreenshot}
-                alt={`${project.title} Email Screenshot`}
-                width={400}
-                height={300}
-                className="w-full rounded-lg object-contain"
-              />
+              <h4 className="text-lg font-semibold text-white mb-2">Report Screenshot (PDF)</h4>
+              <object
+                data={project.emailScreenshot}
+                type="application/pdf"
+                width="100%"
+                height="500"
+                className="rounded-lg"
+              >
+                <p className="text-white">
+                  PDF cannot be displayed.{" "}
+                  <a href={project.emailScreenshot} target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">
+                    Click here to download
+                  </a>
+                </p>
+              </object>
             </div>
           )}
 
-          {/* Report Screenshot */}
-          {project.reportScreenshot && (
-            <div>
-              <h4 className="text-lg font-semibold text-white mb-2">Report Screenshot</h4>
-              <Image
-                src={project.reportScreenshot}
-                alt={`${project.title} Report Screenshot`}
-                width={400}
-                height={300}
-                className="w-full rounded-lg object-contain"
-              />
-            </div>
-          )}
-        </div>
 
-        <style jsx>{`
+        {/* Report Screenshot */}
+        {project.reportScreenshot && (
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Email Screenshot</h4>
+            <Image
+              src={project.reportScreenshot}
+              alt={`${project.title} Report Screenshot`}
+              width={400}
+              height={300}
+              className="w-full rounded-lg object-contain"
+            />
+          </div>
+        )}
+      </div>
+
+      <style jsx>{`
           @media (max-width: 640px) {
             .max-w-4xl {
               margin: 0 1rem;
@@ -118,8 +124,8 @@ const Modal = ({
             }
           }
         `}</style>
-      </div>
     </div>
+    </div >
   );
 };
 
@@ -128,7 +134,6 @@ const PortfolioItem = ({
   category,
   image,
   likes,
-  link,
   passwordProtected,
   video,
   uiVideo,
@@ -169,13 +174,7 @@ const PortfolioItem = ({
 
         <CardContent className="p-6">
           <h3 className="text-xl font-bold mb-4">
-            <Link
-              href={link}
-              className="text-white hover:text-pink transition-colors"
-              onClick={(e) => e.stopPropagation()} // Prevent modal from opening when clicking link
-            >
               {title}
-            </Link>
           </h3>
         </CardContent>
       </Card>
@@ -183,7 +182,7 @@ const PortfolioItem = ({
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        project={{ title, category, image, likes, link, passwordProtected, video, uiVideo, emailScreenshot, reportScreenshot, description }}
+        project={{ title, category, image, likes,  passwordProtected, video, uiVideo, emailScreenshot, reportScreenshot, description }}
       />
     </>
   );
@@ -193,92 +192,71 @@ export default function PortfolioSection() {
   return (
     <section id="portfolio" className="py-16">
       <div className="container max-w-7xl mx-auto px-6">
-        <div className="text-center mb-8">
-          <span className="text-sm text-zinc-400 mb-3 inline-block">Visit my portfolio and keep your feedback</span>
-          <h2 className="text-4xl md:text-5xl font-bold heading-gradient">My Portfolio</h2>
-        </div>
+      <div className="text-center mb-8">
+  <span className="text-sm text-zinc-400 mb-3 inline-block">
+    Due to security and confidentiality policies, we are only showing selected parts of the project.
+  </span>
+  <h2 className="text-4xl md:text-5xl font-bold heading-gradient">
+    Our Complete Assignment
+  </h2>
+</div>
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <PortfolioItem
-            title="Gitex Driver User App"
-            category="Gallery"
-            image="/gitex.png"
+            title="CYBERGUARD Quiz App Assignment"
+            category="CYBERGUARD"
+            image="https://ext.same-assets.com/3856146916/1153871961.jpeg"
             likes={1168}
-            link="https://gitex-seven.vercel.app/"
             passwordProtected={true}
-            video="/videos/gitex-driver-user.mp4" // Placeholder video
-            uiVideo="/videos/gitex-driver-ui.mp4" // Placeholder UI video
-            emailScreenshot="/screenshots/gitex-email.png" // Placeholder screenshot
-            reportScreenshot="/screenshots/gitex-report.png" // Placeholder screenshot
-            description="A mobile app for drivers to manage routes and deliveries, built with React Native."
+            // Placeholder video
+            uiVideo="CYBERGUARD/Fwd NY-DP-RIL(REF)-02 Ui Screen Video.mp4" // Placeholder UI video
+            video="CYBERGUARD/Fwd NY-DP-RIL(REF)-02 Code Video.mp4"
+            emailScreenshot="CYBERGUARD/Fwd NY-DP-RIL(REF)-02 CYBER GUARD PDF.pdf" // Placeholder screenshot
+            reportScreenshot="CYBERGUARD/Screenshot 2025-05-23 110815.png" // Placeholder screenshot
+            description="CYBERGUARD Quiz App Assignment"
           />
 
           <PortfolioItem
-            title="Online Food Delivery Mobile App Design"
-            category="Video"
+            title="E-commerce Website with Block Chain Assignment"
+            category="E-commerce"
             image="https://ext.same-assets.com/3856146916/1153871961.jpeg"
             likes={561}
-            link="https://food-website-one-rho.vercel.app/"
-            video="/videos/food-delivery.mp4" // Placeholder
-            uiVideo="/videos/food-delivery-ui.mp4" // Placeholder
-            emailScreenshot="/screenshots/food-delivery-email.png" // Placeholder
-            reportScreenshot="/screenshots/food-delivery-report.png" // Placeholder
-            description="A sleek mobile app design for food delivery with real-time tracking."
+            video="ecommere/NY-DP-ALB(REF)-02 Code Short Video - Copy - Copy.mp4" // Placeholder
+            uiVideo="ecommere/NY-DP-ALB(REF)-02 UI Short Video - Copy - Copy.mp4" // Placeholder
+            emailScreenshot="ecommere/NY-DP-ALB(REF)-02 readme.pdf" // Placeholder
+            reportScreenshot="ecommere/Screenshot 2025-05-23 113021.png" // Placeholder
+            description="E-commerce Website with Block Chain Assignment"
           />
 
           <PortfolioItem
-            title="Gitex Driver Admin App"
-            category="External Link"
+            title="Gitex Driver WebSite"
+            category="Gitex"
             image="https://ext.same-assets.com/3856146916/1153871961.jpeg"
             likes={561}
-            link="https://gitex-diver.vercel.app/"
-            video="/videos/gitex-admin.mp4" // Placeholder
-            uiVideo="/videos/gitex-admin-ui.mp4" // Placeholder
-            emailScreenshot="/screenshots/gitex-admin-email.png" // Placeholder
-            reportScreenshot="/screenshots/gitex-admin-report.png" // Placeholder
-            description="Admin dashboard for managing driver assignments and analytics."
+            video="Gitex/Fwd NY-DP-AIB(REF)-01 Code Video.mp4" // Placeholder
+            uiVideo="Gitex/Disaster-relief-fund Gitex Ui Screen Video.mp4" // Placeholder
+            emailScreenshot="Gitex/Fwd NY-DP-AIB(REF)-01 Gitex PDf.pdf" // Placeholder
+            reportScreenshot="Gitex/Screenshot 2025-05-23 114739.png" // Placeholder
+            description="Gitex Driver WebSite"
           />
 
           <PortfolioItem
-            title="Quiz-App Design"
-            category="Image"
+            title="Swiftride WebSite With Block Chain Assignment"
+            category="Swiftride"
             image="https://ext.same-assets.com/3856146916/381643791.jpeg"
             likes={736}
-            link="https://try-quiz-app-demo.netlify.app/"
-            video="/videos/quiz-app.mp4" // Placeholder
-            uiVideo="/videos/quiz-app-ui.mp4" // Placeholder
-            emailScreenshot="/screenshots/quiz-app-email.png" // Placeholder
-            reportScreenshot="/screenshots/quiz-app-report.png" // Placeholder
-            description="An interactive quiz app with engaging UI and real-time feedback."
+            video="Swiftride/NY-DP-TIB(REF)-01 SwiftRide Code  Video.mp4" // Placeholder
+            uiVideo="Swiftride/NY-DP-TIB(REF)-01 Swiftride UI Video.mp4" // Placeholder
+            emailScreenshot="Swiftride/NY-DP-TIB(REF)-01 Swiftride Readme.pdf" // Placeholder
+            reportScreenshot="Swiftride/Screenshot 2025-05-23 120133.png" // Placeholder
+            description="Swiftride WebSite With Block Chain Assignment"
           />
 
-          <PortfolioItem
-            title="Cart-Mart Design"
-            category="Gallery"
-            image="https://ext.same-assets.com/3856146916/912725668.jpeg"
-            likes={667}
-            link="https://cart-mart.netlify.app/"
-            video="/videos/cart-mart.mp4" // Placeholder
-            uiVideo="/videos/cart-mart-ui.mp4" // Placeholder
-            emailScreenshot="/screenshots/cart-mart-email.png" // Placeholder
-            reportScreenshot="/screenshots/cart-mart-report.png" // Placeholder
-            description="E-commerce platform design with seamless checkout and product browsing."
-          />
-
-          <PortfolioItem
-            title="Vyrva Music App"
-            category="Standard"
-            image="https://ext.same-assets.com/3856146916/834879061.jpeg"
-            likes={429}
-            link="https://vyrva-music-app.netlify.app/"
-            video="/videos/vyrva-music.mp4" // Placeholder
-            uiVideo="/videos/vyrva-music-ui.mp4" // Placeholder
-            emailScreenshot="/screenshots/vyrva-music-email.png" // Placeholder
-            reportScreenshot="/screenshots/vyrva-music-report.png" // Placeholder
-            description="A music streaming app with personalized playlists and offline support."
-          />
+          
         </div>
       </div>
+     <center><h1 className="pt-5">For security and confidentiality reasons, we are not showing all project content</h1></center> 
     </section>
   );
 }
