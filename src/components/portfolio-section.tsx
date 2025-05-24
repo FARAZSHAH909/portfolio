@@ -191,8 +191,7 @@ const PortfolioItem = ({
 export default function PortfolioSection() {
   return (
     <section id="portfolio" className="py-16">
-      <div className="container max-w-7xl mx-auto px-6 ">
-  <div className="text-center mb-6 px-4">
+     <div className="text-center mb-6 px-4">
   <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold heading-gradient pb-4">
     Our Work Samples
   </h2>
