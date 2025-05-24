@@ -132,7 +132,7 @@ export default function ContactSection() {
     <section id="contacts" className="py-16">
       <div className="container max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold heading-gradient">Contact With Me</h2>
+          <h2 className="text-4xl md:text-5xl font-bold heading-gradient">Contact Us</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -151,7 +151,7 @@ export default function ContactSection() {
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-3">Personal Contact</h3>
                   <p className="text-zinc-400 mb-6">
-                    I am available for freelance work. Connect with me via phone, email, or social media.
+                    I’m available for freelance work. Feel free to connect via phone, email, or social media.
                   </p>
 
                   <div className="mb-4">

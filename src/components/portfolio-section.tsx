@@ -191,15 +191,19 @@ const PortfolioItem = ({
 export default function PortfolioSection() {
   return (
     <section id="portfolio" className="py-16">
-      <div className="container max-w-7xl mx-auto px-6">
-      <div className="text-center mb-8">
-  <span className="text-sm text-zinc-400 mb-3 inline-block">
-    Due to security and confidentiality policies, we are only showing selected parts of the project.
-  </span>
-  <h2 className="text-4xl md:text-5xl font-bold heading-gradient">
-    Our Complete Assignment
+      <div className="container max-w-7xl mx-auto px-6 ">
+     <div className="text-center mb-8">
+  <h2 className="text-4xl md:text-5xl font-bold heading-gradient pb-5">
+    Our Work Samples
   </h2>
+  <span className="text-1xl text-zinc-400 mb-3 inline-block">
+    The following work samples are from assignments completed for Cloud Innovators Solution (CIS), a respected tech company. These examples reflect the quality and standards we maintain in every project.
+  </span>
+  <p className="text-xl ">
+    Please note : Due to security and confidentiality reasons, only selected parts of the work are shown.
+  </p>
 </div>
+
 
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -256,7 +260,7 @@ export default function PortfolioSection() {
           
         </div>
       </div>
-     <center><h1 className="pt-5">For security and confidentiality reasons, we are not showing all project content</h1></center> 
+    
     </section>
   );
 }

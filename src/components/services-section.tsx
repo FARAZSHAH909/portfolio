@@ -69,7 +69,7 @@ export default function ServicesSection() {
             Services
           </span>
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple-500 bg-clip-text text-transparent animate-fade-in-up">
-            Tech Assignments at Cloud Innovators Solution
+           Our Tech Assignment Services
           </h2>
         </div>
 

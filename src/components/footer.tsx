@@ -27,20 +27,18 @@ export default function Footer() {
               FS
             </Link>
             <p className="text-zinc-400 mb-6">
-              Freelance developer at Cloud Innovators Solution, tackling tech assignments in web, blockchain, AI, and more to deliver user-friendly, scalable solutions.
+              Freelance developer  tackling tech assignments in web, blockchain, AI, and more to deliver user-friendly, scalable solutions.
             </p>
             <div className="flex gap-3">
               <Link
-                href="https://facebook.com"
-                target="_blank"
+                href="#"
                 className="w-10 h-10 flex items-center justify-center rounded-md bg-dark-lighter hover:bg-pink transition-all duration-200 hover:scale-110"
                 aria-label="Facebook Profile"
               >
                 <FacebookIcon className="h-5 w-5 text-white" />
               </Link>
               <Link
-                href="https://twitter.com"
-                target="_blank"
+                href="#"
                 className="w-10 h-10 flex items-center justify-center rounded-md bg-dark-lighter hover:bg-pink transition-all duration-200 hover:scale-110"
                 aria-label="Twitter Profile"
               >

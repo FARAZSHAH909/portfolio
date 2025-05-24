@@ -32,7 +32,7 @@ export default function HeroSection() {
               a <span className="typed-text">Freelance Developer</span>
             </h1>
             <p className="text-zinc-400 max-w-2xl mb-8 animate-fade-in-up delay-100">
-              I'm a freelance developer at Cloud Innovators Solution (CIS), specializing in tech assignments like web and app development, blockchain, cybersecurity, AI, Python, Java, and more. I deliver scalable, user-friendly solutions tailored to your needs.
+              I'm a freelance developer, specializing in tech assignments like web and app development, blockchain, cybersecurity, AI, Python, Java, and more. I deliver scalable, user-friendly solutions tailored to your needs.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-8">
@@ -151,7 +151,7 @@ export default function HeroSection() {
                 </div>
                 <div>
                   <h4 className="text-sm font-medium text-white">Tech Assignments Delivered</h4>
-                  <p className="text-xs text-zinc-400">By Faraz Shah at CIS</p>
+                  <p className="text-xs text-zinc-400">By Faraz Shah </p>
                 </div>
               </div>
             </div>
