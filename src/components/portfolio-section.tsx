@@ -192,15 +192,15 @@ export default function PortfolioSection() {
   return (
     <section id="portfolio" className="py-16">
       <div className="container max-w-7xl mx-auto px-6 ">
-     <div className="text-center mb-8">
-  <h2 className="text-4xl md:text-5xl font-bold heading-gradient pb-5">
+  <div className="text-center mb-6 px-4">
+  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold heading-gradient pb-4">
     Our Work Samples
   </h2>
-  <span className="text-1xl text-zinc-400 mb-3 inline-block">
+  <span className="text-base sm:text-lg text-zinc-400 mb-2 inline-block">
     The following work samples are from assignments completed for Cloud Innovators Solution (CIS), a respected tech company. These examples reflect the quality and standards we maintain in every project.
   </span>
-  <p className="text-xl ">
-    Please note : Due to security and confidentiality reasons, only selected parts of the work are shown.
+  <p className="text-lg sm:text-xl">
+    Please note: Due to security and confidentiality reasons, only selected parts of the work are shown.
   </p>
 </div>
 
